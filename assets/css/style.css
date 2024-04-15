@@ -9,10 +9,10 @@
     --font-bold:700;
 
     /* colors */
-    --first-color:#1e81b0;
-    --first-color-dark:#106e99;
-    --first-color-darken:#005d87;
-    --text-color:#425c5b;
+    --first-color:#1c7cbc;
+    --first-color-dark:#196aa0;
+    --first-color-darken:#14537c;
+    --text-color:#073e63;
     --first-color-light:#e6e7ea;
     --first-color-lighten:#fffafa;
 
@@ -49,7 +49,7 @@
 }
 
 /* Base */
-*,::before,::after{
+*,::before, ::after{
     box-sizing: border-box;
 }
 
@@ -433,6 +433,7 @@ text-align: center;
 .education__time{
     padding: 0 1rem;
     justify-self: center;
+    
 }
 
 .education__rounder{

@@ -1,56 +1,41 @@
-// const navMenu = document.getElementById('nav-menu');
-// const toggleMenu = document.getElementById('nav-toggle');
-// const closeMenu = document.getElementById('nav-close');
+// MENU SHOW Y HIDDEN 
+const navMenu = document.getElementById('nav-menu');
+    toggleMenu = document.getElementById('nav-toggle');
+    closeMenu = document.getElementById('nav-close');
 
-// Show menu
-// toggleMenu.addEventListener('click', () => {
-//     navMenu.classList.toggle('show');
-// });
+// SHOW
+toggleMenu.addEventListener('click', ()=>{
+    navMenu.classList.toggle('show')
+})
 
-// // Hide menu
-// closeMenu.addEventListener('click', () => {
-//     navMenu.classList.remove('show');
-// });
 
-// // Remove menu when a link is clicked
-// const navLinks = document.querySelectorAll('.nav__link');
-// navLinks.forEach(link => {
-//     link.addEventListener('click', () => {
-//         navMenu.classList.remove('show');
-//     });
-// });
+// HIDDEN
+closeMenu.addEventListener('click', ()=>{
+    navMenu.classList.remove('show')
+})    
+// REMOVE MENU
+const navLink = document.querySelectorAll('.nav_link')
 
-// // Add 'active' class to navigation links based on scroll position
-// window.addEventListener('scroll', () => {
-//     const scrollY = window.pageYOffset;
-//     const sections = document.querySelectorAll('section[id]');
+function linkAction(){
+    navMenu.classList.remove('show')
+}
+navLink.forEach(n => n.addEventListener('click', linkAction))
 
-//     sections.forEach(section => {
-//         const sectionHeight = section.offsetHeight;
-//         const sectionTop = section.offsetTop - 50;
-//         const sectionId = section.getAttribute('id');
+// SCROLL SECTIONS ACTIVE LINK 
+const sections = document.querySelectorAll('section[id')
 
-//         if (scrollY > sectionTop && scrollY <= sectionTop + sectionHeight) {
-//             document.querySelector(`.nav__link[href="#${sectionId}"]`).classList.add('active');
-//         } else {
-//             document.querySelector(`.nav__link[href="#${sectionId}"]`).classList.remove('active');
-//         }
-//     });
-// });
-// (function () {
-//     var toggle = document.querySelector('.nav-toggle');
-    
-//     toggle.addEventListener('click', function(e) {
-//       this.classList.toggle('opened');
-//     });
-//   })();
+window.addEventListener('scroll', scrollActive)
 
-(function () {
-    var toggle = document.querySelector('.nav-toggle');
-    var navMenu = document.getElementById('nav-menu');
-    
-    toggle.addEventListener('click', function(e) {
-        navMenu.classList.toggle('show');
-        this.classList.toggle('opened');
-    });
-})();
+function scrollActive(){
+    const scrollY = window.pageYOffset
+
+    sections.forEach(current =>{
+        const sectionHeight = current.offsetHeight
+        const sectionTop = current.offsetTop - 50
+        sectionId = current.getAttribute('id')
+
+        if(scrollY > screenTop && scrollY <= sectionTop +sectionHeight){
+            document.querySelector('.nav_menu a[href*='+sectionId +']').classList.add('active')
+        }
+    })
+}
